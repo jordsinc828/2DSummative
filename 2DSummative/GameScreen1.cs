@@ -73,13 +73,13 @@ namespace _2DSummative
             hero.Add(hero1);
 
             #region  Platforms
-            Platforms platform1 = new Platforms(175, 55, 40, 10, 3);
+            Platforms platform1 = new Platforms(175, 55, 40, 10, 1);
             platforms.Add(platform1);
-            Platforms platform2 = new Platforms(175, 95, 40, 10, -3);
+            Platforms platform2 = new Platforms(175, 95, 40, 10, 1);
             platforms.Add(platform2);
-            Platforms platform3 = new Platforms(150, 135, 40, 10, 3);
+            Platforms platform3 = new Platforms(150, 135, 40, 10, 1);
             platforms.Add(platform3);
-            Platforms platform4 = new Platforms(150, 175, 40, 10, -3);
+            Platforms platform4 = new Platforms(150, 175, 40, 10, 1);
             platforms.Add(platform4);
             #endregion
 
@@ -298,11 +298,13 @@ namespace _2DSummative
             {
                 if (platforms[i].x > 240)
                 {
-                    platforms[i].speed = -3;
+                    int rand = randNum.Next(1, 5);
+                    platforms[i].speed = -rand;
                 }
                 else if (platforms[i].x < 155)
                 {
-                    platforms[i].speed = +3;
+                    int rand = randNum.Next(1, 5);
+                    platforms[i].speed = rand;
                 }
                 #endregion
             #region ZigMoving1

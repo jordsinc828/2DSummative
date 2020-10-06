@@ -68,5 +68,14 @@ namespace _2DSummative.Properties {
                 return ResourceManager.GetStream("retro_explosion", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream winSound {
+            get {
+                return ResourceManager.GetStream("winSound", resourceCulture);
+            }
+        }
     }
 }

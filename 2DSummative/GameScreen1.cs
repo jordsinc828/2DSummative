@@ -28,11 +28,14 @@ namespace _2DSummative
         List<Platforms> platforms = new List<Platforms>();
         List<ZigZag> zig = new List<ZigZag>();
         List<winBox> win = new List<winBox>();
+
+        SoundPlayer player = new SoundPlayer(Properties.Resources.retro_explosion);
+        SoundPlayer player2 = new SoundPlayer(Properties.Resources.winSound);
         Boolean aKeyDown, dKeyDown, wKeyDown, sKeyDown;
         int heroSpeed = 1;
-        Color c = Color.Red;
         Hero hero1;
         Random randNum = new Random();
+        int Time;
         #endregion
         public GameScreen1()
         {
@@ -52,7 +55,19 @@ namespace _2DSummative
             yesButton.Visible = false;
             noButton.Visible = false;
             replayLabel.Visible = false;
-            winLabel.Visible = false;
+            resultsLabel.Visible = false;
+            TimeLabel.Visible = true;
+            this.Focus();
+
+            
+
+            boxes.Clear();
+            hero.Clear();
+            fallboxes.Clear();
+            platforms.Clear();
+            zig.Clear();
+            win.Clear();
+            Time = 0;
 
             hero1 = new Hero(15, 40, 10);
             hero.Add(hero1);
@@ -125,16 +140,23 @@ namespace _2DSummative
         #region WinGame
         private void WinGame()
         {
+            resultsLabel.Text = "You Won in " + Time / 32 + " Second(s)";
+            TimeLabel.Visible = false;
+            player2.Play();
             gameTimer.Enabled = false;
             replayLabel.Visible = true;
             noButton.Visible = true;
             yesButton.Visible = true;
-            winLabel.Visible = true;
+            resultsLabel.Visible = true;
         }
         #endregion
         #region GameOver
         private void GameOver()
         {
+            resultsLabel.Visible = true;
+            resultsLabel.Text = "You Lost in " + Time / 32 + " Second(s)";
+            TimeLabel.Visible = false;
+            player.Play();
             gameTimer.Enabled = false;
             replayLabel.Visible = true;
             noButton.Visible = true;
@@ -165,7 +187,7 @@ namespace _2DSummative
         private void yesButton_Click(object sender, EventArgs e)
         {
             SetParameters();
-            this.Refresh();
+            this.Focus();
         }
 
         private void noButton_Click(object sender, EventArgs e)
@@ -173,6 +195,8 @@ namespace _2DSummative
             Application.Exit();
         }
         #endregion
+        
+
         private void GameScreen1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
@@ -196,7 +220,8 @@ namespace _2DSummative
         #endregion
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
+            Time++;
+            TimeLabel.Text = "Time:" + Time / 32;
             #region boxMoving
 
             #region Setup

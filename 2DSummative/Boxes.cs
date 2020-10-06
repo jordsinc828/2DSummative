@@ -10,7 +10,6 @@ namespace _2DSummative
     class Boxes
     {
 
-        public Color color;
         public int x, y, sizeW, sizeH, speed;
 
         public Boxes(int _x, int _y, int _sizeW, int _sizeH, int _speed)

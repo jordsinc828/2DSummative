@@ -33,7 +33,8 @@
             this.replayLabel = new System.Windows.Forms.Label();
             this.yesButton = new System.Windows.Forms.Button();
             this.noButton = new System.Windows.Forms.Button();
-            this.winLabel = new System.Windows.Forms.Label();
+            this.resultsLabel = new System.Windows.Forms.Label();
+            this.TimeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -72,22 +73,32 @@
             this.noButton.UseVisualStyleBackColor = true;
             this.noButton.Click += new System.EventHandler(this.noButton_Click);
             // 
-            // winLabel
+            // resultsLabel
             // 
-            this.winLabel.AutoSize = true;
-            this.winLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winLabel.Location = new System.Drawing.Point(248, 97);
-            this.winLabel.Name = "winLabel";
-            this.winLabel.Size = new System.Drawing.Size(292, 73);
-            this.winLabel.TabIndex = 4;
-            this.winLabel.Text = "You Win!";
+            this.resultsLabel.AutoSize = true;
+            this.resultsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultsLabel.Location = new System.Drawing.Point(191, 169);
+            this.resultsLabel.Name = "resultsLabel";
+            this.resultsLabel.Size = new System.Drawing.Size(197, 51);
+            this.resultsLabel.TabIndex = 4;
+            this.resultsLabel.Text = "You Win!";
+            // 
+            // TimeLabel
+            // 
+            this.TimeLabel.AutoSize = true;
+            this.TimeLabel.Location = new System.Drawing.Point(3, 0);
+            this.TimeLabel.Name = "TimeLabel";
+            this.TimeLabel.Size = new System.Drawing.Size(65, 25);
+            this.TimeLabel.TabIndex = 5;
+            this.TimeLabel.Text = "Time:";
             // 
             // GameScreen1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Controls.Add(this.winLabel);
+            this.Controls.Add(this.TimeLabel);
+            this.Controls.Add(this.resultsLabel);
             this.Controls.Add(this.noButton);
             this.Controls.Add(this.yesButton);
             this.Controls.Add(this.replayLabel);
@@ -109,6 +120,7 @@
         private System.Windows.Forms.Label replayLabel;
         private System.Windows.Forms.Button yesButton;
         private System.Windows.Forms.Button noButton;
-        private System.Windows.Forms.Label winLabel;
+        private System.Windows.Forms.Label resultsLabel;
+        private System.Windows.Forms.Label TimeLabel;
     }
 }
